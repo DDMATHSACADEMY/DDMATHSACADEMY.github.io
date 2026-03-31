@@ -12,44 +12,68 @@
         body { background-color: var(--bt-light); color: var(--bt-dark); }
         a { text-decoration: none; color: inherit; }
 
-        /* Header & Nav */
-        .top-bar { background: var(--bt-dark); color: white; font-size: 0.8rem; padding: 8px 5%; display: flex; justify-content: space-between; }
+        /* HEADER & NAV (PC Default) */
+        .top-bar { background: var(--bt-dark); color: white; font-size: 0.8rem; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; }
         .header-main { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bt-border); }
         .logo { font-size: 2.2rem; font-weight: 900; color: var(--bt-blue); letter-spacing: -1px; }
         .logo span { color: var(--bt-orange); }
         
-        /* Updated Nav to match homepage */
         .main-nav { background: var(--bt-blue); padding: 0 5%; display: flex; gap: 0; flex-wrap: wrap; align-items: stretch; }
-        .nav-item { color: white; font-weight: 700; padding: 18px 25px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; display: flex; align-items: center; }
+        .nav-item { color: white; font-weight: 700; padding: 18px 25px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .nav-item:hover { background: rgba(255,255,255,0.1); }
         .nav-item.active { background: var(--bt-orange); color: white; }
 
-        /* Contact Layout */
+        /* CONTACT LAYOUT (PC Default - 2 Columns) */
         .page-header { background: var(--bt-blue); color: white; padding: 40px 5%; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
         .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 50px 5%; }
         
         .contact-info-card { background: white; padding: 30px; border-radius: 8px; border: 1px solid var(--bt-border); border-top: 5px solid var(--bt-orange); }
         .contact-info-card h3 { color: var(--bt-blue); font-size: 1.5rem; margin-bottom: 20px; }
-        .info-row { display: flex; gap: 15px; margin-bottom: 20px; font-size: 1.05rem; color: #4b5563; }
-        .icon { font-size: 1.4rem; width: 25px; }
+        .info-row { display: flex; gap: 15px; margin-bottom: 20px; font-size: 1.05rem; color: #4b5563; line-height: 1.5; }
+        .icon { font-size: 1.4rem; width: 25px; flex-shrink: 0; }
 
         .contact-form { background: white; padding: 30px; border-radius: 8px; border: 1px solid var(--bt-border); }
         .input-group { margin-bottom: 15px; }
         .input-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
-        .input-group input, .input-group textarea, .input-group select { width: 100%; padding: 12px; border: 1px solid var(--bt-border); border-radius: 4px; font-family: inherit; }
-        .submit-btn { background: var(--bt-blue); color: white; border: none; padding: 15px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; transition: 0.3s; }
-        .submit-btn:hover { background: var(--bt-orange); }
-
-        /* Map styling */
-        .map-box { margin-top: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--bt-border); height: 300px; }
+        .input-group input, .input-group textarea, .input-group select { width: 100%; padding: 12px; border: 1px solid var(--bt-border); border-radius: 4px; font-family: inherit; transition: 0.3s; }
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus { outline: none; border-color: var(--bt-orange); box-shadow: 0 0 5px rgba(249, 115, 22, 0.2); }
         
-        /* Mobile Optimization */
+        .submit-btn { background: var(--bt-blue); color: white; border: none; padding: 15px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { background: var(--bt-orange); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3); }
+
+        .map-box { margin-top: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--bt-border); height: 350px; }
+
+
+        /* =========================================
+           📱 MOBILE & TABLET OPTIMIZATION SECTION
+           This code automatically takes over on smaller screens
+           ========================================= */
+           
+        @media (max-width: 992px) {
+            /* TABLETS: Changes the 2-column grid to a 1-column stack */
+            .contact-container { grid-template-columns: 1fr; gap: 30px; padding: 40px 5%; }
+            .page-header h1 { font-size: 2rem; }
+        }
+
         @media (max-width: 768px) {
-            .contact-container { grid-template-columns: 1fr; padding: 30px 5%; gap: 20px; }
+            /* PHONES: Centers headers and navigation */
+            .top-bar { flex-direction: column; text-align: center; gap: 8px; padding: 12px 5%; }
             .header-main { flex-direction: column; gap: 15px; text-align: center; }
-            .main-nav { padding: 0; justify-content: center; }
-            .nav-item { width: 50%; justify-content: center; text-align: center; padding: 12px 10px; font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-            .top-bar { flex-direction: column; text-align: center; gap: 8px; padding: 15px 5%; }
+            
+            /* PHONES: Creates a touch-friendly 2-column grid for the menu */
+            .main-nav { padding: 0; }
+            .nav-item { width: 50%; padding: 12px 5px; font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.05); }
+            .nav-item:nth-child(even) { border-right: none; } 
+            
+            /* PHONES: Adjusts sizing so text isn't massive */
+            .page-header { padding: 30px 5%; }
+            .contact-info-card, .contact-form { padding: 20px; }
+            .contact-info-card h3 { font-size: 1.3rem; }
+            .info-row { font-size: 0.95rem; }
+            
+            /* PHONES: Makes the map shorter to save screen space */
+            .map-box { height: 250px; }
         }
     </style>
 </head>
@@ -62,7 +86,7 @@
 
     <header class="header-main">
         <a href="index.html" class="logo">DD<span>ACADEMY</span></a>
-        <a href="tel:09487564287" style="background: var(--bt-orange); color: white; padding: 10px 20px; font-weight: bold; border-radius: 4px;">CALL NOW</a>
+        <a href="tel:09487564287" style="background: var(--bt-orange); color: white; padding: 10px 20px; font-weight: bold; border-radius: 4px; transition: 0.3s;">CALL NOW</a>
     </header>
 
     <nav class="main-nav">
@@ -111,10 +135,10 @@
             </div>
             
             <div class="map-box">
-                <iframe src="https://www.google.com/maps?q=DD+Academy,+Mohanur+Road,+Namakkal&output=embed" width="100%" height="400" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://maps.google.com/maps?q=DD+Academy,+Mohanur+Road,+Namakkal&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
-            <a href="https://www.google.com/maps?q=DD+Academy,+Mohanur+Road,+Namakkal" target="_blank" style="display: block; text-align: center; background: #22c55e; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 10px;">
+            <a href="https://maps.google.com/?q=DD+Academy,+Mohanur+Road,+Namakkal" target="_blank" style="display: block; text-align: center; background: #22c55e; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: 15px; transition: 0.3s;">
                 📍 Get Directions on Google Maps
             </a>
         </div>
