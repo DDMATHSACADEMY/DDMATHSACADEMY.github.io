@@ -13,7 +13,7 @@
         a { text-decoration: none; color: inherit; }
 
         /* HEADER & NAV */
-        .top-bar { background: var(--bt-dark); color: white; font-size: 0.85rem; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .top-bar { background: var(--bt-dark); color: white; font-size: 0.85rem; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; }
         .header-main { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bt-border); }
         .logo { font-size: 2.2rem; font-weight: 900; color: var(--bt-blue); letter-spacing: -1px; display: flex; align-items: center; gap: 5px; }
         .logo span { color: var(--bt-orange); }
@@ -27,9 +27,11 @@
         .call-btn { background: var(--bt-orange); color: white; padding: 12px 30px; font-weight: bold; border-radius: 4px; text-decoration: none; transition: 0.3s; }
         .call-btn:hover { background: var(--bt-blue); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3); }
 
-        .main-nav { background: var(--bt-blue); padding: 0 5%; display: flex; gap: 1rem; flex-wrap: wrap; }
-        .nav-item { color: white; font-weight: 600; padding: 15px 20px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; position: relative; }
-        .nav-item:hover { background: var(--bt-orange); padding-left: 25px; padding-right: 15px; }
+        /* ALL CAPS NAV WITH SOLID ORANGE ACTIVE STATE */
+        .main-nav { background: var(--bt-blue); padding: 0 5%; display: flex; gap: 0; flex-wrap: wrap; align-items: stretch; }
+        .nav-item { color: white; font-weight: 700; padding: 18px 25px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; display: flex; align-items: center; }
+        .nav-item:hover { background: rgba(255,255,255,0.1); }
+        .nav-item.active { background: var(--bt-orange); color: white; }
 
         /* TICKER */
         .ticker-wrap { background: white; display: flex; align-items: center; border-bottom: 2px solid var(--bt-border); margin-bottom: 20px; }
@@ -38,10 +40,8 @@
         .ticker-text { position: absolute; white-space: nowrap; line-height: 40px; animation: ticker 25s linear infinite; font-weight: 600; color: #374151; }
         @keyframes ticker { 0% { left: 100%; } 100% { left: -100%; } }
 
-        /* GRID SYSTEM */
+        /* GRID SYSTEM (DESKTOP DEFAULT) */
         .portal-container { display: grid; grid-template-columns: 70% 28%; gap: 2%; padding: 0 5% 40px; }
-        @media (max-width: 900px) { .portal-container { grid-template-columns: 1fr; } .search-bar { display: none; } }
-
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px; gap: 15px; margin-bottom: 30px; }
         .hero-card { position: relative; border-radius: 8px; overflow: hidden; color: white; display: flex; align-items: flex-end; padding: 20px; cursor: pointer; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .hero-card:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
@@ -92,6 +92,27 @@
         .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: var(--whatsapp-green); color: white; border-radius: 50px; padding: 15px 25px; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; transition: 0.3s; animation: whatsapp-glow 3s infinite; }
         .whatsapp-float:hover { transform: scale(1.1) rotate(-3deg); }
         @keyframes whatsapp-glow { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* 📱 MOBILE OPTIMIZATION */
+        @media (max-width: 900px) { 
+            .portal-container { grid-template-columns: 1fr; } 
+            .search-bar { display: none; } 
+        }
+        @media (max-width: 768px) {
+            .top-bar { flex-direction: column; text-align: center; gap: 8px; padding: 15px 5%; }
+            .header-main { flex-direction: column; gap: 15px; text-align: center; }
+            .main-nav { padding: 0; justify-content: center; }
+            .nav-item { width: 50%; justify-content: center; text-align: center; padding: 12px 10px; font-size: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            
+            .hero-grid { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+            .hero-card.main { grid-row: auto; min-height: 250px; }
+            .hero-card { min-height: 200px; }
+            
+            .faculty-profile { padding: 25px 15px; }
+            .faculty-name h3 { font-size: 1.5rem; }
+            .section-header { font-size: 1.3rem; }
+            .portal-container { padding-bottom: 80px; } 
+        }
     </style>
 </head>
 <body>
@@ -111,13 +132,13 @@
     </header>
 
     <nav class="main-nav">
-        <a href="index.html" class="nav-item">Home</a>
-        <a href="course-10.html" class="nav-item">10th Board</a>
-        <a href="course-12.html" class="nav-item">12th Board</a>
-        <a href="course-neet.html" class="nav-item">NEET Foundation</a>
-        <a href="course-jee.html" class="nav-item">JEE Foundation</a>
-        <a href="studymaterial.html" class="nav-item">Study Materials</a>
-        <a href="contact.html" class="nav-item">Contact Us</a>
+        <a href="index.html" class="nav-item active">HOME</a>
+        <a href="course-10.html" class="nav-item">10TH BOARD</a>
+        <a href="course-12.html" class="nav-item">12TH BOARD</a>
+        <a href="course-neet.html" class="nav-item">NEET FOUNDATION</a>
+        <a href="course-jee.html" class="nav-item">JEE FOUNDATION</a>
+        <a href="studymaterial.html" class="nav-item">STUDY MATERIALS</a>
+        <a href="contact.html" class="nav-item">CONTACT</a>
     </nav>
 
     <div class="ticker-wrap">
