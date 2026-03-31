@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Foundation | DD Academy</title>
+    <style>
+        :root { --bt-blue: #1e3a8a; --bt-orange: #f97316; --bt-light: #f3f4f6; --bt-dark: #111827; --bt-border: #e5e7eb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: var(--bt-light); color: var(--bt-dark); }
+        a { text-decoration: none; color: inherit; }
+
+        /* 1. TOP BAR - Cleaned */
+        .top-bar { background: var(--bt-dark); color: white; font-size: 0.85rem; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; }
+        
+        .header-main { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bt-border); }
+        .logo { font-size: 2.2rem; font-weight: 900; color: var(--bt-blue); letter-spacing: -1px; }
+        .logo span { color: var(--bt-orange); }
+
+        /* 2. NAVIGATION */
+        .main-nav { background: var(--bt-blue); padding: 0 5%; display: flex; gap: 1rem; }
+        .nav-item { color: white; font-weight: 600; padding: 15px 20px; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; position: relative; }
+        .nav-item:hover, .nav-item.active { background: var(--bt-orange); }
+        .badge { background: #ef4444; color: white; font-size: 0.6rem; padding: 2px 6px; border-radius: 10px; position: absolute; top: 5px; right: 5px; }
+
+        /* 3. HERO SECTION */
+        .course-hero { background: var(--bt-dark); color: white; padding: 60px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .course-title h1 { font-size: 2.8rem; color: white; margin-bottom: 15px; }
+        .course-title p { font-size: 1.1rem; color: #9ca3af; max-width: 600px; line-height: 1.6; }
+        .course-badge { background: #dc2626; padding: 5px 12px; font-weight: bold; border-radius: 4px; display: inline-block; margin-bottom: 15px; }
+        
+        .enroll-box { background: white; color: var(--bt-dark); padding: 30px; border-radius: 8px; text-align: center; width: 300px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border-top: 5px solid #dc2626; }
+        .enroll-box h3 { margin-bottom: 15px; font-size: 1.5rem; color: var(--bt-blue); }
+        .enroll-btn { display: block; background: var(--bt-orange); color: white; padding: 15px; border-radius: 4px; font-weight: bold; font-size: 1.1rem; margin-top: 20px; transition: 0.3s; }
+        .enroll-btn:hover { background: var(--bt-blue); transform: translateY(-2px); }
+
+        /* 4. CONTENT */
+        .course-content { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 50px 5%; }
+        .content-section { background: white; padding: 30px; border-radius: 8px; border: 1px solid var(--bt-border); margin-bottom: 30px; }
+        .content-section h2 { color: var(--bt-blue); border-bottom: 2px solid var(--bt-border); padding-bottom: 10px; margin-bottom: 20px; }
+        .content-section ul { padding-left: 20px; line-height: 1.8; color: #4b5563; }
+        .content-section ul li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div>📞 094875 64287 | admissions@ddacademy.in</div>
+        <div style="font-weight: bold; color: var(--bt-orange);">ADMISSIONS OPEN</div>
+    </div>
+
+    <header class="header-main">
+        <a href="indexddb.html" class="logo">DD<span>ACADEMY</span></a>
+        <a href="tel:09487564287" style="background: var(--bt-orange); color: white; padding: 10px 20px; font-weight: bold; border-radius: 4px;">CALL NOW</a>
+    </header>
+
+    <nav class="main-nav">
+        <a href="indexddb.html" class="nav-item">Home</a>
+        <a href="course-10.html" class="nav-item">10th Board </a>
+        <a href="course-12.html" class="nav-item">12th Board</a>
+        <a href="course-neet.html" class="nav-item">NEET Foundation</a>
+        <a href="course-jee.html" class="nav-item active">JEE Foundation</a> 
+        <a href="studymaterial.html" class="nav-item">Study Materials </a>
+        <a href="contact.html" class="nav-item">Contact</a>
+    </nav>
+
+    <div class="course-hero">
+        <div class="course-title">
+            <span class="course-badge">ENGINEERING ENTRANCE</span>
+            <h1>JEE Foundation Course</h1>
+            <p>Develop the elite analytical and logical reasoning skills required for IIT-JEE Main and Advanced. We turn rote learners into critical thinkers capable of solving high-level complex problems.</p>
+        </div>
+        <div class="enroll-box">
+            <h3>Build the Logic</h3>
+            <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 10px;">Mathematics & Physics intensive training.</p>
+            <ul style="text-align: left; list-style: none; color: #4b5563; font-size: 0.9rem; line-height: 2;">
+                <li>✅ Advanced Problem Solving</li>
+                <li>✅ Numerical Shortcuts</li>
+                <li>✅ IIT-JEE Level Mock Tests</li>
+            </ul>
+            <a href="tel:09487564287" class="enroll-btn">Enquire Now</a>
+        </div>
+    </div>
+
+    <div class="course-content">
+        <div>
+            <div class="content-section">
+                <h2>What You Will Learn</h2>
+                <ul>
+                    <li><strong>Advanced Mathematics:</strong> Moving beyond formulas. We focus on graphical transformations, calculus intuition, and 3D geometry visualization.</li>
+                    <li><strong>Conceptual Physics:</strong> Mechanics, Electromagnetism, and Optics taught with real-world applications to tackle multi-concept JEE questions.</li>
+                    <li><strong>Physical & Inorganic Chemistry:</strong> Calculation-heavy chemistry practice and logical deduction methods for inorganic reactions.</li>
+                    <li><strong>Time vs. Accuracy:</strong> specialized training to identify which questions to solve and which to skip to maximize your percentile.</li>
+                </ul>
+            </div>
+            <div class="content-section">
+                <h2>Why start a Foundation Course?</h2>
+                <p style="color: #4b5563; line-height: 1.6;">The IIT-JEE tests your understanding, not your memory. By enrolling in the JEE Foundation at DD Academy, students develop the mathematical stamina needed to approach unseen, high-difficulty problems.</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="content-section" style="background: #eff6ff; border-color: #bfdbfe;">
+                <h2 style="color: var(--bt-blue); font-size: 1.2rem;">Need more info?</h2>
+                <p style="font-size: 0.9rem; color: #4b5563; margin-bottom: 15px;">Speak with our senior faculty to understand the curriculum better.</p>
+                <a href="contact.html" style="display: inline-block; background: white; color: var(--bt-blue); padding: 8px 15px; border-radius: 4px; border: 1px solid var(--bt-blue); font-weight: bold; font-size: 0.9rem;">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
